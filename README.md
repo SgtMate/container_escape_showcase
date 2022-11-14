@@ -5,5 +5,5 @@ This exploit is based on combining CVE-2016-3714 and CVE-2022-0492. To clarify, 
 
 ## Repo Structure
 
-## Hot to get running
+## How to get running
 

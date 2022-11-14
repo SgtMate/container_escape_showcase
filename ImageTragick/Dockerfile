@@ -8,4 +8,6 @@ WORKDIR /usr/src/goof
 
 RUN npm update
 RUN npm install
+
+EXPOSE 80
 CMD ["npm", "start"]

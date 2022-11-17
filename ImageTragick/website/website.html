@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="de-DE">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="icon.GIF">
-<link rel="stylesheet" type="text/css" href="styles.css">
-<title>¡Apagando las luces!</title>
-</head>
-<body onload="Init();">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.GIF">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>¡Apagando las luces!</title>
+</head>
+
+<body onload="Init();">
+    <div id="header">Upload your private Photos</div>
+    <div id="fileUpload">
+        <form action="/upload" enctype="multipart/form-data" method="post">
+            <input title="picture" type="file" name="picture" required /> <br>
+            <input type="submit">
+        </form>
+    </div>
 </body>
 <script src="script.js"></script>
+
 </html>

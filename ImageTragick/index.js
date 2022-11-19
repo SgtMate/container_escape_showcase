@@ -1,22 +1,34 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const path = require('path');
 var multer = require('multer');
 
 // express setup and path definition
 const app = express();
-app.use(express.json());
+const port = 80;
+const maxSize = 1 * 1000 * 1000;
+const upload = multer().single('image');
 
-app.get('/', method1);
-app.get('/styles.css', method2);
-app.get('/script.js', method3);
-app.post('/upload', method4);
+app.use(express.static(path.join(__dirname, 'website/public')));
 
-async function getHtml(req, res, next) { }
-async function getCss(req, res, next) { }
-async function getJs(req, res, next) { }
-async function uploadImage(req, res, next) {
-// get a user uploaded file and resize it
-}
+app.get('/', (req, res) => {
+    console.log(__dirname);
+    res.sendFile(path.join(__dirname, 'website/public/website.html'));
+});
 
-app.listen(80);
+app.post('/upload', function(req, res) {
+    upload(req, res, function(err) {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log('ez gg wp tank diff')
+            console.log(req.file);
+            res.redirect('/');
+        }
+    })
+})
+
+var server = app.listen(port, () => {
+    console.log(`App listening at http://127.0.0.1:${port}`)
+})

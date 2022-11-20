@@ -10,8 +10,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3",
-    "multer": "^2.0.0-alpha.5"
+    "express": "^4.15.3"
   },
   "devDependencies": {}
 }

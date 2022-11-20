@@ -1,12 +1,11 @@
 const express = require('express');
-// const bodyParser = require('body-parser');
 const path = require('path');
-var multer = require('multer');
+const multer = require('multer');
+var child_process = require('child_process');
 
 // express setup and path definition
 const app = express();
 const port = 80;
-const maxSize = 1 * 1000 * 1000;
 const upload = multer().single('image');
 
 app.use(express.static(path.join(__dirname, 'website/public')));
@@ -16,15 +15,20 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'website/public/website.html'));
 });
 
-app.post('/upload', function(req, res) {
-    upload(req, res, function(err) {
+app.post('/upload', function (req, res) {
+    var fileResult;
+    upload(req, res, function (err) {
         if (err) {
             console.log(err);
             return;
         } else {
-            console.log('ez gg wp tank diff')
-            console.log(req.file);
-            res.redirect('/');
+            child_process.execFile(
+                "/usr/bin/convert",
+                ['./rce1.jpg', "-resize", "280x150", fileResult],
+                (error) => {
+                    res.redirect("/");
+                }
+            );
         }
     })
 })

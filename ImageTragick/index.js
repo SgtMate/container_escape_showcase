@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const multer = require('multer');
+const fs = require('fs');
 var child_process = require('child_process');
 
 // express setup and path definition
@@ -22,9 +23,10 @@ app.post('/upload', function (req, res) {
             console.log(err);
             return;
         } else {
+            fs.writeFile('./temp/image.jpg', req.file.stream)
             child_process.execFile(
                 "/usr/bin/convert",
-                ['./rce1.jpg', "-resize", "280x150", fileResult],
+                ['./temp/image.jpg', "-resize", "280x150", fileResult],
                 (error) => {
                     res.redirect("/");
                 }

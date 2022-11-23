@@ -4,6 +4,7 @@ services:
   website:
     image: escape
     build: .
+    privileged: true
     ports:
       - 80:80
       

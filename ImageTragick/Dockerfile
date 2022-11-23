@@ -10,4 +10,4 @@ RUN npm install
 # RUN npm i multer@2.0.0-alpha.5 --save
 
 EXPOSE 80
-CMD ["node", "."]
+CMD ["npm", "start"]

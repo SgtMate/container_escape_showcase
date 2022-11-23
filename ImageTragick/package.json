@@ -4,7 +4,8 @@
   "description": "",
   "main": "website/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
   },
   "author": "Mate",
   "license": "Apache-2.0",

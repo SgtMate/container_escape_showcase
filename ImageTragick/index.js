@@ -1,15 +1,16 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const path = require('path');
-const multer = require('multer');
 const fs = require('fs');
 var child_process = require('child_process');
 
 // express setup and path definition
 const app = express();
 const port = 80;
-const upload = multer().single('image');
 
+app.use(fileUpload({ createParentPath: true }));
 app.use(express.static(path.join(__dirname, 'website/public')));
+
 
 app.get('/', (req, res) => {
     console.log(__dirname);
@@ -17,22 +18,26 @@ app.get('/', (req, res) => {
 });
 
 app.post('/upload', function (req, res) {
+    console.log("rofl");
+    console.log(req.files.image)
+
     var fileResult;
-    upload(req, res, function (err) {
-        if (err) {
-            console.log(err);
-            return;
-        } else {
-            fs.writeFile('./temp/image.jpg', req.file.stream)
-            child_process.execFile(
-                "/usr/bin/convert",
-                ['./temp/image.jpg', "-resize", "280x150", fileResult],
-                (error) => {
-                    res.redirect("/");
-                }
-            );
-        }
-    })
+
+    fs.writeFile('./temp/image.jpg', req.files.image.data, () => {
+        console.log("file written");
+
+        child_process.execFile(
+            "/usr/bin/convert",
+            ['./temp/image.jpg', "-resize", "280x150", fileResult],
+            (error) => {
+                console.log(error);
+                res.redirect("/");
+                return;
+            }
+        );
+
+    });
+
 })
 
 var server = app.listen(port, () => {

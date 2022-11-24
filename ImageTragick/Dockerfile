@@ -6,8 +6,8 @@ RUN mkdir /usr/src/goof
 COPY . /usr/src/goof
 WORKDIR /usr/src/goof
 
-RUN npm update
 RUN npm install
+# RUN npm i multer@2.0.0-alpha.5 --save
 
 EXPOSE 80
 CMD ["npm", "start"]

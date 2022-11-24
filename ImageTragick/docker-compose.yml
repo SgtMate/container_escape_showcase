@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  website:
+    image: escape
+    build: .
+    privileged: true
+    ports:
+      - 80:80
+      

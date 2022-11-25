@@ -26,6 +26,7 @@ app.post('/upload', function (req, res) {
     fs.writeFile('./temp/image.jpg', req.files.image.data, () => {
         console.log("file written");
 
+        // execute imagemagick
         child_process.execFile(
             "/usr/bin/convert",
             ['./temp/image.jpg', "-resize", "280x150", fileResult],

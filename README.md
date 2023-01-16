@@ -27,3 +27,7 @@ To get the exploit running, the following steps need to be taken:
 - Upload the rce1.jpg file
 - Wait for the exploit to run and the container to escape
 - Now your host system is compromised and after a restart you will see an image pop up on your screen
+
+## Recording of the exploit in action
+
+[![asciicast](https://asciinema.org/a/552094.svg)](https://asciinema.org/a/552094)

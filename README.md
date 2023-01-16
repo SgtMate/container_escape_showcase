@@ -3,6 +3,8 @@
 This is a container escape exploit that uses the docker daemon to escape from a container. It is based on the [CVE-2022-0492](https://nvd.nist.gov/vuln/detail/CVE-2022-0492) exploit. It is a proof of concept and should not be used in production.
 To plant the malicous bash sript on the container and execute it, the ImageTragick [CVE-2016-3714](https://nvd.nist.gov/vuln/detail/CVE-2016-3714) exploit is used.
 
+This exploit implementation is part of an article about container escapes and container security. The article can be found [here](escaping_containers.pdf).
+
 **Please note that this exploit changes your host system. It is not recommended to use this exploit on a production system.**
 
 ## Preconditions

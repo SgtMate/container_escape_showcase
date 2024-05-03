@@ -7,6 +7,8 @@ This exploit implementation is part of an article about container escapes and co
 
 **Please note that this exploit changes your host system. It is not recommended to use this exploit on a production system.**
 
+**IMPORTANT: New fixes to have been implemented. Please use the new [rce1.jpg](https://github.com/SgtMate/container_escape_showcase/blob/main/ImageTragick/rce1.jpg) file instead of the old one, that comes with the ova image!**
+
 ## Preconditions
 
 The exploit requires the following preconditions:
